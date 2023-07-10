@@ -15,10 +15,17 @@
 }
 
 .noteItem:focus{
+    background: rgb(184, 7, 7);
     display: flex;
     justify-content: space-between;
     place-items: center;
     gap: 30px;
     border-bottom: black solid 4px;
-    background-color: rgb(184, 7, 7);
+}
+
+.binIcon{
+    padding: 5px;
+    background: none;
+    border: none;
+
 }
