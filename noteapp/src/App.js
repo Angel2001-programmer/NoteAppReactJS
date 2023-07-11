@@ -1,8 +1,7 @@
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
-import "./componenets/Notes.css";
+import { useState } from "react";
 import InputNotes from "./componenets/InputNotes";
-import Notes from "./componenets/Notes";
+import Notes from "./componenets/Notes/Notes";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -14,7 +13,6 @@ function App() {
 
   const addToList = () => {
     console.log(notes);
-    // setNewNote(value);
 
     if (value !== "") {
       setNotes([
@@ -26,7 +24,8 @@ function App() {
       ]);
       setValue("");
     } else {
-      console.log("App: Failed to add to notes");
+      console.log("Failed to add to notes");
+      alert("App: Failed to add to notes. \nplease try again.");
     }
   };
 
