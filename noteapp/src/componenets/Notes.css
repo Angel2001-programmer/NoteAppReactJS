@@ -12,20 +12,11 @@
     place-items: center;
     gap: 30px;
     border-bottom: black solid 4px;
-}
-
-.noteItem:focus{
-    background: rgb(184, 7, 7);
-    display: flex;
-    justify-content: space-between;
-    place-items: center;
-    gap: 30px;
-    border-bottom: black solid 4px;
+    padding-left: 5px;
 }
 
 .binIcon{
     padding: 5px;
     background: none;
     border: none;
-
 }

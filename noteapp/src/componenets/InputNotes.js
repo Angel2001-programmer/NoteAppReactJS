@@ -1,21 +1,15 @@
 import { useState } from "react";
 
-const InputNotes = (props) => {
-  const [value, setValue] = useState("");
-
-  const valueHandler = (e) => {
-    setValue(e.target.value); 
-  }
-
+const InputNotes = ({props}) => {
     return(
       <div>
-        <input 
-        placeholder='Enter your note here!'
-        value={value}
-        onChange={valueHandler}
-        />
-        <button onClick={props.data}>Enter</button>
-        </div>
+      <input
+        placeholder="Enter your note here!"
+        value={props.value}
+        onChange={props.valueHandler}
+      />
+      <button onClick={props.addToList}>Enter</button>
+    </div>
     )
 }
 
