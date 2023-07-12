@@ -25,7 +25,7 @@ function App() {
       setValue("");
     } else {
       console.log("Failed to add to notes");
-      alert("App: Failed to add to notes. \nplease try again.");
+      alert("Failed to add to notes. \nplease try again.");
     }
   };
 
