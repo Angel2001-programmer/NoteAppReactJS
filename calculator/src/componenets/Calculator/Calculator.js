@@ -9,15 +9,15 @@ const Calculator = props => {
     const [subtraction, setSubtraction] = useState(false);
     const [division, setDivision] = useState(false);
     const [muliplication, setMuliplication] = useState(false);
-    const [percentage, setPercentage] = useState(false);
     const [equal, setEqual] = useState(true);
 
     let result = '';
+    let newValue = null;
 
     const clickHandler = (e) => {
-        setEnteredValue(enteredValue + e.target.innerHTML);
+        setEnteredValue(enteredValue + e.target.innerHTML+'');
 
-        if(enteredValue !== null){
+        if(enteredValue != null){
             setOperand(false);
         }
 
@@ -39,12 +39,6 @@ const Calculator = props => {
             setMuliplication(true);
         }
     
-        if(enteredValue.includes('%')){
-            setOperand(true);
-            setEqual(false);
-            setPercentage(true);
-        }
-    
         if(enteredValue.includes('÷')){
             setOperand(true);
             setEqual(false);
@@ -52,23 +46,43 @@ const Calculator = props => {
         }
     }
 
+    if(enteredValue.includes('%')){
+        newValue = enteredValue.replace('%', '');
+        result = parseFloat(newValue.split(' ')[0]) / 100;
+        setEnteredValue(result.toString());
+        setOperand(false);
+    }
+
     if(enteredValue.includes('=')){
-        if(addition !== false){
+        return setEnteredValue('');
+    }
+
+    const equalsHandler = () => {        
+        if(addition != false){
+            newValue = enteredValue.replace('+', ' ');
+            result = parseInt(newValue.split(' ')[0]) + parseInt(newValue.split(' ')[1]);
+            setOperand(false);
+        }
+    
+        if(subtraction != false){
+            newValue = enteredValue.replace('-', ' ');
+            result = parseInt(newValue.split(' ')[0]) - parseInt(newValue.split(' ')[1]);
+            setOperand(false);
+        }
+    
+        if(muliplication != false){
+            newValue = enteredValue.replace('X', ' ');
+            result = parseInt(newValue.split(' ')[0]) * parseInt(newValue.split(' ')[1]);
+            setOperand(false);
+        }
+    
+        if(division != false){
+            newValue = enteredValue.replace('÷', ' ');
+            result = parseInt(newValue.split(' ')[0]) / parseInt(newValue.split(' ')[1]);
+            setOperand(false);
         }
 
-        if(subtraction !== false){
-        }
-
-        if(division !== false){
-        }
-
-        if(muliplication !== false){
-        }
-
-        if(percentage !== false){
-        }
-
-        return setEnteredValue(result);
+        return setEnteredValue(result.toString());
     }
 
     return (   
@@ -91,7 +105,7 @@ const Calculator = props => {
         </div>
         </div>
     </div>
-    <Button disabled={equal} clickHandler={clickHandler} num='='/>
+    <Button disabled={equal} clickHandler={equalsHandler} num='='/>
     </div>
     )
 }
