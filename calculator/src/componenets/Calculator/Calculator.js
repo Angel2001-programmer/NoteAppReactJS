@@ -15,11 +15,6 @@ const Calculator = props => {
     let newValue = null;
     let isEmpty = true;
 
-    // Check if number is less than 0 do something
-    if(enteredValue > 0){
-        isEmpty = false;
-    }
-
     const clickHandler = (e) => {
         //set User Input through buttons
         setEnteredValue(enteredValue + e.target.innerHTML+'');
@@ -50,6 +45,13 @@ const Calculator = props => {
         return setEnteredValue('');
     }
 
+    if(enteredValue > 0){
+        isEmpty = false;
+    } else if(enteredValue < -1){
+        setEnteredValue("");
+        return alert("This calculator does not allow negative numbers")
+    }
+
     const equalsHandler = () => {        
         if(addition !== false){
             newValue = enteredValue.replace('+', ' ');
@@ -75,8 +77,18 @@ const Calculator = props => {
             isEmpty = false;
         }
 
+        setAddition(false);
+        setSubtraction(false);
+        setMuliplication(false);
+        setDivision(false);
+
         return setEnteredValue(result.toString());
     }
+
+    console.log(`Addition: ${addition}`);
+    console.log(`Subtraction: ${subtraction}`);
+    console.log(`Muliplication: ${muliplication}`);
+    console.log(`Division: ${division}`);
 
     return (   
     <div className={styles.calculator}>
