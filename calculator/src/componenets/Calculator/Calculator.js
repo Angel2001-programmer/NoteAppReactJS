@@ -1,48 +1,41 @@
 import styles from './Calculator.module.css';
 import Button from '../UI/Button/Button';
+import Input from '../Input/Input';
 import { useState } from 'react';
 
 const Calculator = props => {
     const [enteredValue, setEnteredValue] = useState('');
-    const [operand, setOperand] = useState(true);
+    const [equal, setEqual] = useState(true);
     const [addition, setAddition] = useState(false);
     const [subtraction, setSubtraction] = useState(false);
-    const [division, setDivision] = useState(false);
     const [muliplication, setMuliplication] = useState(false);
-    const [equal, setEqual] = useState(true);
+    const [division, setDivision] = useState(false);
 
     let result = '';
     let newValue = null;
+    let isEmpty = true;
+
+    // Check if number is less than 0 do something
+    if(enteredValue > 0){
+        isEmpty = false;
+    }
 
     const clickHandler = (e) => {
+        //set User Input through buttons
         setEnteredValue(enteredValue + e.target.innerHTML+'');
+      
+        //Check if operation is included in the string.
+        checkOprand('+', setAddition);
+        checkOprand('-', setSubtraction);
+        checkOprand('X', setMuliplication);
+        checkOprand('÷', setDivision);
+    }
 
-        if(enteredValue != null){
-            setOperand(false);
-        }
-
-        if(enteredValue.includes('+')){
-            setOperand(true);
+    const checkOprand = (symbol, operand) => {
+        if(enteredValue.includes(symbol)){
+            isEmpty = true;
             setEqual(false);
-            setAddition(true);
-        }
-    
-        if(enteredValue.includes('-')){
-            setOperand(true);
-            setEqual(false);
-            setSubtraction(true);
-        }
-    
-        if(enteredValue.includes('X')){
-            setOperand(true);
-            setEqual(false);
-            setMuliplication(true);
-        }
-    
-        if(enteredValue.includes('÷')){
-            setOperand(true);
-            setEqual(false);
-            setDivision(true);
+            operand(true)
         }
     }
 
@@ -50,7 +43,7 @@ const Calculator = props => {
         newValue = enteredValue.replace('%', '');
         result = parseFloat(newValue.split(' ')[0]) / 100;
         setEnteredValue(result.toString());
-        setOperand(false);
+        isEmpty = false;
     }
 
     if(enteredValue.includes('=')){
@@ -58,28 +51,28 @@ const Calculator = props => {
     }
 
     const equalsHandler = () => {        
-        if(addition != false){
+        if(addition !== false){
             newValue = enteredValue.replace('+', ' ');
             result = parseInt(newValue.split(' ')[0]) + parseInt(newValue.split(' ')[1]);
-            setOperand(false);
+            isEmpty = false;
         }
     
-        if(subtraction != false){
+        if(subtraction !== false){
             newValue = enteredValue.replace('-', ' ');
             result = parseInt(newValue.split(' ')[0]) - parseInt(newValue.split(' ')[1]);
-            setOperand(false);
+            isEmpty = false;
         }
     
-        if(muliplication != false){
+        if(muliplication !== false){
             newValue = enteredValue.replace('X', ' ');
             result = parseInt(newValue.split(' ')[0]) * parseInt(newValue.split(' ')[1]);
-            setOperand(false);
+            isEmpty = false;
         }
     
-        if(division != false){
+        if(division !== false){
             newValue = enteredValue.replace('÷', ' ');
             result = parseInt(newValue.split(' ')[0]) / parseInt(newValue.split(' ')[1]);
-            setOperand(false);
+            isEmpty = false;
         }
 
         return setEnteredValue(result.toString());
@@ -87,25 +80,23 @@ const Calculator = props => {
 
     return (   
     <div className={styles.calculator}>
-        <div className={styles.search}>
-        <input className={styles.input} placeholder='0' value={enteredValue} onChange={clickHandler}></input>
-        </div>
+        <Input placeholder={0} value={enteredValue} onChange={clickHandler}/>
 
         <div className={styles.container}>
         <div className={styles.parent}>
         <div className={styles.NumColumn}>            
         {props.numOptions.map((obj) => {
-            return <Button clickHandler={clickHandler} num={obj}/>
+            return <Button clickHandler={clickHandler} value={obj}/>
         })}
         </div>
         <div className={styles.OperandsColumn}>
         {props.operandsOptions.map((obj) => {
-            return <Button disabled={operand} clickHandler={clickHandler} num={obj}/>
+            return <Button disabled={isEmpty} clickHandler={(e) => clickHandler(e)} value={obj}/>
         })}
         </div>
         </div>
     </div>
-    <Button disabled={equal} clickHandler={equalsHandler} num='='/>
+    <Button disabled={equal} clickHandler={() => equalsHandler()} value='='/>
     </div>
     )
 }

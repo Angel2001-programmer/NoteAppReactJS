@@ -5,6 +5,7 @@
     padding: 20px;
     border-radius: 10px;
     border-width: 0;
+    font-size: 40px;
 }
 
 .button:active{
