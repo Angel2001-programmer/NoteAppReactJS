@@ -5,6 +5,12 @@ import Courses from "../Courses/courses";
 import Tools from "../Tools/Tools";
 
 const portfolio = props => {
+
+  const clickHandler = () => {
+    console.log('Clicked');
+  }
+
+
 return(
     <div className="web">
       <Navigation></Navigation>
@@ -30,7 +36,7 @@ return(
         <div className='contentV'>
           <div className='courses'>
             <h1 className='title'>Courses</h1>
-            <Courses props={props.data}></Courses>
+            <Courses onClick={clickHandler} data={props.data}></Courses>
           </div>
 
           <div className='technologies'>
@@ -40,7 +46,7 @@ return(
 
           <div className='projects'>
             <h1 className='title'>Projects</h1>
-            <Courses props={props.projects}></Courses>
+            <Courses onClick={clickHandler} data={props.projects}></Courses>
           </div>
         </div>
         </Content>

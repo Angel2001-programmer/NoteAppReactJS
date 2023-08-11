@@ -1,6 +1,13 @@
 import "./App.css";
 import Modal from "./UI/Modal/modal";
 import Portfolio from "./components/Portfolio/portfolio";
+import Calculator from "./images/calculatorpreview.PNG";
+import NoteApp from "./images/noteapppreview.PNG";
+import TicTacToe from "./images/tictactoe-project.PNG";
+import TodoList from "./images/calculatorpreview.PNG";
+import WeatherApp from "./images/WeatherPreview.PNG";
+import MusicApp from "./images/MusicPreview.PNG";
+
 import { Fragment } from "react";
 
 function App() {
@@ -21,25 +28,65 @@ function App() {
       link: "https://",
       status: "Completed",
     },
+
+    {
+      id: 2,
+      name: "CodeFirstGirls Kickstarter Javascript",
+      image:
+        "https://codefirstgirls.com/wp-content/uploads/2021/05/Featured-image-web-1.png",
+      link: "https://",
+      status: "Not Complete",
+    },
+
+    {
+      id: 3,
+      name: "CodeFirstGirls Degree FullStack Developer",
+      image:
+        "https://codefirstgirls.com/wp-content/uploads/2022/04/CFGDegree-Logo-3.png",
+      link: "CFGDegree-Logo-3",
+      status: "Not Complete",
+    },
   ];
 
   let projects = [
     {
       id: 0,
       name: "CodeFirstGirls Music App",
-      image:
-        "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+      image: MusicApp,
       link: "https://",
-      status: "Not Complete",
+      status: "Completed",
     },
 
     {
       id: 1,
-      name: "Not made yet.",
-      image:
-        "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+      name: "Calculator",
+      image: Calculator,
       link: "#",
-      status: "Not Complete",
+      status: "Completed",
+    },
+
+    {
+      id: 2,
+      name: "TicTacToe",
+      image: TicTacToe,
+      link: "#",
+      status: "Completed",
+    },
+
+    {
+      id: 3,
+      name: "WeatherApp",
+      image: WeatherApp,
+      link: "#",
+      status: "Completed",
+    },
+
+    {
+      id: 4,
+      name: "NoteApp",
+      image: NoteApp,
+      link: "#",
+      status: "Completed",
     },
   ];
 

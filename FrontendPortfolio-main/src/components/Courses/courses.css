@@ -6,6 +6,7 @@
 .cardContainer{
     padding: 10px 0 10px 0;
     border-radius: 14px;
+    background-color: black;
 }
 
 .card{
