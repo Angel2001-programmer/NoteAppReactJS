@@ -1,0 +1,21 @@
+.title{
+    padding: 10px;
+    text-align: center;
+}
+
+.courses{
+    padding-bottom: 10px;
+  }
+  
+  .technologies{
+    padding-bottom: 10px;
+  }
+  
+  .projects{
+    padding-bottom: 10px;
+  }
+  
+  .contentV{
+    display: grid;
+    place-items: center;
+  }

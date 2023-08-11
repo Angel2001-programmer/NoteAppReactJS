@@ -1,8 +1,7 @@
-import "./styles/App.css";
-import Navigation from "./components/navigation";
-import Courses from "./components/courses";
-import Tools from "./components/Tools";
-import HeroImage from "./components/heroImage";
+import "./App.css";
+import Modal from "./UI/Modal/modal";
+import Portfolio from "./components/Portfolio/portfolio";
+import { Fragment } from "react";
 
 function App() {
   let data = [
@@ -86,40 +85,14 @@ function App() {
   ];
 
   return (
-    <div>
-      <header>
-        <Navigation></Navigation>
-      </header>
-      <HeroImage></HeroImage>
-      <div className='content'>
-        <div className='summary'>
-          <h1 className='title'>Brief Summary</h1>
-          <p>
-            A little bit about me, Hi I am Angel Im 22 years old, studying
-            ReactJS through Udemy.com. I am also studying a kick-starter course
-            provided by Code First Girls about frontend development. I have
-            always had a passion for tech since a little kid, computers has
-            always fascinated me about how they function, 22 years later and I
-            still love computers.
-          </p>
-          <p>Please explore my Portfolio to find out more about me!</p>
-        </div>
-        <div className='contentV'>
-          <div className='courses'>
-            <h1 className='title'>Courses</h1>
-            <Courses props={data}></Courses>
-          </div>
-          <div className='technologies'>
-            <h1 className='title'>Technologies</h1>
-            <Tools props={tools}></Tools>
-          </div>
-          <div className='projects'>
-            <h1 className='title'>Projects</h1>
-            <Courses props={projects}></Courses>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Fragment>
+      <Modal/>
+      <Portfolio 
+      data={data} 
+      projects={projects} 
+      tools={tools}
+      />
+    </Fragment>
   );
 }
 

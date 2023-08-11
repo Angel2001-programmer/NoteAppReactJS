@@ -1,7 +1,6 @@
 *{
   color: white;
 }
-
 .content{
   padding-right: 15px;
   padding-left: 15px;
@@ -12,8 +11,14 @@
   padding: 0;
 }
 
+.web{
+  background-color: #292e36;
+}
+
 body{
-  background-color: #282c34;
+  margin-right: 800px;
+  margin-left: 800px;
+  background-color: #20242b;
 }
 
 h1{
