@@ -1,0 +1,25 @@
+.heroImage{
+    display: flex;
+    background-image: url(../images/image.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 689px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .heroText{
+    font-size: 70px;
+    text-shadow: 6px 3px 8px black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li{
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  

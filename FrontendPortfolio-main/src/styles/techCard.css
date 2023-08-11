@@ -1,0 +1,24 @@
+.cardContainer{
+    padding: 0;
+    margin: 0;
+}
+
+.techCard{
+    display: flex;
+    justify-content: center;    
+    padding: 0;
+    margin: 0;
+}
+
+.textCard{
+    display: flex;
+    justify-content: center; 
+    padding: 0;
+    margin: 0;   
+}
+
+.techImg{
+    width: 210px;
+    height: 210px;
+    padding: 12px;
+}

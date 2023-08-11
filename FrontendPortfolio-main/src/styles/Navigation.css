@@ -1,0 +1,29 @@
+.navigation{
+    background-color: #ff00005b;
+}
+
+.list{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 0;
+    margin: 0;
+}
+
+.list li{
+    display: flex;
+    height: 70px;
+    justify-content: end;
+    align-items: center;
+    list-style-type: none;
+    padding: 15px;
+}
+
+.list li a{
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.list li:hover{
+    background-color: #6e00005d;
+}
